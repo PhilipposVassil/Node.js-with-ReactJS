@@ -1,4 +1,4 @@
-const {handleResponse, getCleanUser, generateToken, generateRefreshToken, refreshTokens, COOKIE_OPTIONS} = require("../utils");
+const {handleResponse, getCleanUser, generateToken, generateRefreshToken, refreshTokens, COOKIE_OPTIONS, clearTokens} = require("../utils");
 const {userList} = require("../userList");
 
 // validate user credentials
@@ -42,3 +42,10 @@ exports.login =(
         });
     }
 );
+
+exports.logout = (
+    function (req, res) {
+        clearTokens(req, res);
+        return handleResponse(req, res, 200, "User logout successfully.");
+}
+)
