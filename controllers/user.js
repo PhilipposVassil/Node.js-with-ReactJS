@@ -43,9 +43,10 @@ exports.login =(
     }
 );
 
+// handle user logout
 exports.logout = (
     function (req, res) {
         clearTokens(req, res);
         return handleResponse(req, res, 200, "User logout successfully.");
-}
+    }
 )
