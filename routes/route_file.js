@@ -10,5 +10,6 @@ const authMiddleware = middleware.auth;
 route.post('/verifyToken', verifyController.verifyToken);
 route.post('/users/signin',userController.login);
 route.post('/users/logout',userController.logout);
+route.get('/users/getList',authMiddleware,userController.getList);
 
 module.exports = route;

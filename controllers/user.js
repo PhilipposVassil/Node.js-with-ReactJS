@@ -49,4 +49,15 @@ exports.logout = (
         clearTokens(req, res);
         return handleResponse(req, res, 200, "User logout successfully.");
     }
-)
+);
+
+// get list of the users
+exports.getList = (
+    function (req, res) {
+    const list = userList.map(x => {
+        const user = { ...x };
+        delete user.password;
+        return user;
+    });
+    return handleResponse(req, res, 200, { userList: list });
+});
